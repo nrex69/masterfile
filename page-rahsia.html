@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="ms">
 <head>
 <meta charset="UTF-8">
 <title>Rahsia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+const ACCESS_KEY = "AKSES_SAH_2025";
+if(localStorage.getItem(ACCESS_KEY)!=="1"){
+  location.replace("index.html");
+}
+</script>
+
+<style>
+body{
+  margin:0;
+  background:#000;
+  color:#0f0;
+  font-family:system-ui, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+}
+</style>
 </head>
-<body style="background:#000;color:#0f0;text-align:center;padding-top:40vh">
-<h1>Berjaya Masuk</h1>
+
+<body>
+  <h1>Berjaya Masuk</h1>
 </body>
 </html>
