@@ -96,11 +96,44 @@ function unlock(){
   }
 }
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+<script>
+const ACCESS_KEY = "ACCESS_GRANTED_V3";
+
+/* HASH sebenar (MD5) */
 const VALID_HASH = [
-  "1111",
-  "2222",
-  "3333"
+  "b59c67bf196a4758191e42f76670ceba", // 1111
+  "0f826a89cf68c399c5f4cf320c1a5842", // 2222
+  "8f14e45fceea167a5a36dedd4bea2543"  // 3333
 ];
+
+/* Auto masuk */
+if(localStorage.getItem(ACCESS_KEY)==="1"){
+  location.replace("videolist.html");
+}
+
+function unlock(){
+  const v = document.getElementById("code").value.trim();
+  const e = document.getElementById("err");
+
+  if(v.length !== 4){
+    e.textContent = "Kod mesti 4 digit";
+    e.style.display="block";
+    return;
+  }
+
+  const hash = CryptoJS.MD5(v).toString();
+
+  if(VALID_HASH.includes(hash)){
+    localStorage.setItem(ACCESS_KEY,"1");
+    location.replace("videolist.html");
+  }else{
+    e.textContent = "Kod tidak sah";
+    e.style.display="block";
+  }
+}
+</script>
 
 </script>
 
