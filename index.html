@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<title>Akses Terkunci</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  background:#0b0b0b;
+  color:#fff;
+  font-family:sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.box{
+  background:#111;
+  padding:30px;
+  border-radius:14px;
+  width:300px;
+}
+input,button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:none;
+}
+button{
+  font-weight:bold;
+}
+.err{
+  color:#ff6b6b;
+  font-size:13px;
+  display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h3>Akses Terkunci</h3>
+  <input type="password" id="code" maxlength="4" placeholder="4 digit">
+  <button onclick="unlock()">Buka</button>
+  <div class="err" id="err">Kod tidak sah</div>
+</div>
+
+<script>
+const ACCESS_KEY = "ACCESS_GRANTED_V1";
+
+/* Jika pernah unlock sebelum ini */
+if(localStorage.getItem(ACCESS_KEY)==="YES"){
+  location.replace("page-rahsia.html");
+}
+
+function unlock(){
+  const v = document.getElementById("code").value;
+
+  if(v === "1234"){   // KOD SEMENTARA
+    localStorage.setItem(ACCESS_KEY,"YES");
+    location.replace("page-rahsia.html");
+  }else{
+    document.getElementById("err").style.display="block";
+  }
+}
+</script>
+
+</body>
+</html>
