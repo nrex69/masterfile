@@ -89,7 +89,7 @@ function unlock(){
 
   if(VALID_HASH.includes(hash)){
     localStorage.setItem(ACCESS_KEY,"1");
-    location.replace("page-rahsia.html");
+    location.replace("videolist.html");
   }else{
     e.textContent = "Kod tidak sah";
     e.style.display="block";
