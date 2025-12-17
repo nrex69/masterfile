@@ -10,7 +10,7 @@ body{
   margin:0;
   background:#0b0b0b;
   color:#fff;
-  font-family:sans-serif;
+  font-family:system-ui, sans-serif;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -18,9 +18,13 @@ body{
 }
 .box{
   background:#111;
-  padding:30px;
-  border-radius:14px;
+  padding:28px;
+  border-radius:16px;
   width:300px;
+  box-shadow:0 0 40px rgba(0,0,0,.6);
+}
+h3{
+  margin:0 0 10px;
 }
 input,button{
   width:100%;
@@ -28,14 +32,21 @@ input,button{
   margin-top:10px;
   border-radius:10px;
   border:none;
+  outline:none;
 }
 button{
-  font-weight:bold;
+  font-weight:600;
+  background:#1f1f1f;
+  color:#fff;
+}
+button:active{
+  transform:scale(.98);
 }
 .err{
   color:#ff6b6b;
   font-size:13px;
   display:none;
+  margin-top:8px;
 }
 </style>
 </head>
@@ -44,27 +55,44 @@ button{
 
 <div class="box">
   <h3>Akses Terkunci</h3>
-  <input type="password" id="code" maxlength="4" placeholder="4 digit">
-  <button onclick="unlock()">Buka</button>
+  <input type="password" id="code" maxlength="4" placeholder="Masukkan kod">
+  <button type="button" onclick="unlock()">Buka</button>
   <div class="err" id="err">Kod tidak sah</div>
 </div>
 
-<script>
-const ACCESS_KEY = "ACCESS_GRANTED_V1";
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
-/* Jika pernah unlock sebelum ini */
-if(localStorage.getItem(ACCESS_KEY)==="YES"){
+<script>
+const ACCESS_KEY = "AKSES_SAH_2025";
+
+/* HASH KOD (BUKAN KOD SEBENAR) */
+const VALID_HASH = [
+  "81dc9bdb52d04dc20036dbd8313ed055" // 1234 (contoh, buang bila siap)
+];
+
+/* Auto masuk jika sudah pernah unlock */
+if(localStorage.getItem(ACCESS_KEY)==="1"){
   location.replace("page-rahsia.html");
 }
 
 function unlock(){
-  const v = document.getElementById("code").value;
+  const v = document.getElementById("code").value.trim();
+  const e = document.getElementById("err");
 
-  if(v === "1234"){   // KOD SEMENTARA
-    localStorage.setItem(ACCESS_KEY,"YES");
+  if(v.length !== 4){
+    e.textContent = "Kod mesti 4 digit";
+    e.style.display="block";
+    return;
+  }
+
+  const hash = CryptoJS.MD5(v).toString();
+
+  if(VALID_HASH.includes(hash)){
+    localStorage.setItem(ACCESS_KEY,"1");
     location.replace("page-rahsia.html");
   }else{
-    document.getElementById("err").style.display="block";
+    e.textContent = "Kod tidak sah";
+    e.style.display="block";
   }
 }
 </script>
