@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Video</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      margin: 0;
+    }
+
+    header {
+      background: #1b1b1b;
+      text-align: center;
+      padding: 18px 0;
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+    }
+
+    .reset-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #2a2a2a;
+      color: #888;
+      border: none;
+      padding: 4px 8px;
+      font-size: 9px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .master-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .master-item.off {
+      background: #00000040;
+      border-left: 4px solid #555;
+    }
+
+    .master-item.on {
+      background: #0047ff20;
+      border-left: 4px solid #007bff;
+    }
+
+    .master-name {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .latest-ep {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  VIP V•G•K Video
+  <button class="reset-btn" onclick="resetWatched()">RESET</button>
+</header>
+
+<main>
+
+<p style="font-size:9px;color:#666;margin-top:0;">
+  MEGA |
+  <a href="https://play.google.com/store/apps/details?id=mega.privacy.android.app" target="_blank" style="color:#888;">
+    DOWNLOAD
+  </a>
+
+<p style="font-size:9px;color:#666;margin-top:0;">
+  Latest Wed, 17 Dec 2025 9:18
+  </a>
+
+</p>
+
+<div class="master-item off" data-id="video1" data-link="https://mega.nz/file/zE91QbAb#_Ug4Xb2e1RvMv2eHlBIgw8V6lu0pquSoame0xtMgTYo">
+  <div>
+    <div class="master-name">Video 1</div>
+    <div class="latest-ep">5.48MB | Solo • Bocil</div>
+  </div>
+</div>
+
+</script>
+
+</body>
+</html>
