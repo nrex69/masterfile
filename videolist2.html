@@ -106,5 +106,42 @@
 
 </script>
 
+<style>
+.nav-btn {
+  position: fixed;
+  bottom: 15px;
+  font-size: 12px;
+  padding: 6px 12px;
+  background: #777;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.nav-btn:hover {
+  opacity: 1;
+}
+
+.next {
+  right: 15px;
+}
+
+.back {
+  left: 15px;
+}
+</style>
+
+<!-- Button Back (boleh buang di page pertama) -->
+<button class="nav-btn back" onclick="location.href='index.html'">
+  Kembali
+</button>
+
+<!-- Button Next -->
+<button class="nav-btn next" onclick="location.href='videolist2.html'">
+  Next
+</button>
+
 </body>
 </html>
